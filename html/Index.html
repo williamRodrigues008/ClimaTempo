@@ -11,16 +11,21 @@
     <title>Clima Tempo</title>
 </head>
 <body>
-    <div class="corpoInicio">
-        <div class="dadosDoClima">
+    <div id="corpo" class="corpoInicio">
+        <div id="dadosDoClima" class="dadosDoClima">
             <div class="divDados">
-                <p class="nomeDaCidade">Aguardando Consulta...</p>
+                <h1 class="nomeDaCidade">Aguardando Consulta...</h1>
                 <h5 class="data"></h5>
+                <div class="icone" style="font-size: 50pt ; margin: 20px;"></i></div>
+                <div style="font: bold 35pt verdana; text-shadow: 0em 0.1em 0.1em gray;">
+                    <h1><span class="clima">30</span>°c</h1>
+                </div>
+                <h3 class="descricaoClima"></h3>
             </div>
             <div class="divClima">
                 <div class="divBusca">
                     <input type="text" class="inputCidade" placeholder="Buscar cidade"/>
-                    <button class="btnBuscar" onclick="Buscar()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button id="btnBuscar" class="btnBuscar" onclick="Buscar()"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
             </div>
         </div>
