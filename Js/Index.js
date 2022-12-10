@@ -9,18 +9,28 @@ const api = {
 function ConsultarClima(cidade) {
     fetch(`${api.base}weather?q=${cidade}&lang=${api.lang}&units=${api.units}&appid=${api.key}`)
         .then(response => {
-            if (!response.ok) {
-                throw new Error(`Erro na requisição, status: ${response.status}`)
+            if(!response.ok){
+               return new Error()
             }
             return response.json()
         })
-        .catch(erro => {
-            alert(erro.message)
-        })
         .then(resposta => {
             console.log(resposta)
-            CarregarDadosNaTela(resposta)
+            if(resposta != null){
+                CarregarDadosNaTela(resposta)
+            }
         })
+        .catch(erro => {
+            $('.alerta').html('Infelizmente não localizamos a cidade')
+            $('.alert').attr('hidden', false)
+            setTimeout(OcultarMensagemDeErro, 3000)
+            
+        })
+        
+}
+
+function OcultarMensagemDeErro(){
+    return $('.alert').attr('hidden', true)
 }
 
 function CarregarDadosNaTela(resposta) {
